@@ -1,0 +1,27 @@
+.beers-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 1024px;
+  margin: 2em auto;
+}
+
+.beer-card {
+  display: flex;
+  width: 300px;
+  border: 2px solid #7295ee;
+  border-radius: 4px;
+  padding: 1em;
+  margin: 1em auto;
+  align-items: center;
+  color: inherit;
+}
+
+.beer-card:hover {
+  background-color: rgba(114, 149, 238, 0.8);
+  color: white;
+}
+
+.beer-card img {
+  height: 140px;
+  margin-right: 1em;
+}

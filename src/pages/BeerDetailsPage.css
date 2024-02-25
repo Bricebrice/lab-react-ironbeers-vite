@@ -1,0 +1,26 @@
+.beer-detail-card {
+  display: flex;
+  flex-direction: column;
+  max-width: 448px;
+  border: 2px solid #7295ee;
+  border-radius: 4px;
+  padding: 1em;
+  margin: 1em auto;
+  align-items: center;
+  color: inherit;
+}
+
+.beer-detail-card img {
+  height: 140px;
+  margin-right: 1em;
+}
+
+.beer-details {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+.beer-details p:first-child {
+  margin-right: 1em;
+}
