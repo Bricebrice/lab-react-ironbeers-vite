@@ -2,8 +2,10 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import "./BeerDetailsPage.css";
+import { Link } from "react-router-dom";
+import BeerCard from "./BeerCard";
 
-function BeerDetailsPage(props) {
+function BeerDetailsPage() {
   const [foundBeer, setFoundBeer] = useState(null);
 
   const { beerId } = useParams();
@@ -21,25 +23,13 @@ function BeerDetailsPage(props) {
 
   return (
     <>
+      <br />
+      <Link to="/beers" style={{ textAlign: "center" }}>
+        Back
+      </Link>
       {!foundBeer && <h3>You're drunk!</h3>}
 
-      {foundBeer && (
-        <div className="beer-detail-card">
-          <img src={foundBeer.image_url} alt={foundBeer.name} />
-          <div>
-            <div className="beer-details">
-              <h2>{foundBeer.name}</h2>
-              <p>{foundBeer.attenuation_level}</p>
-            </div>
-            <div className="beer-details">
-              <p>{foundBeer.tagline}</p>
-              <p>{foundBeer.first_brewed}</p>
-            </div>
-            <p>{foundBeer.description}</p>
-            <p>{foundBeer.contributed_by}</p>
-          </div>
-        </div>
-      )}
+      {foundBeer && <BeerCard beer={foundBeer} />}
     </>
   );
 }

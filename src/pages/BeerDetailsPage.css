@@ -12,7 +12,6 @@
 
 .beer-detail-card img {
   height: 140px;
-  margin-right: 1em;
 }
 
 .beer-details {
@@ -24,3 +23,4 @@
 .beer-details p:first-child {
   margin-right: 1em;
 }
+
