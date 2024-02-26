@@ -14,7 +14,12 @@ form {
 }
 
 .search-bar {
-  margin-bottom: 50px;
+  margin: 0 auto;
+  max-width: 400px;
+}
+
+.search-bar Input {
+  margin: 2em 0;
 }
 
 .btn-round {

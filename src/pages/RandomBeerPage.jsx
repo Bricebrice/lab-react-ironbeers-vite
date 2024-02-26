@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import BeerCard from "./BeerCard";
+import BeerCard from "../components/BeerCard";
 
 function RandomBeersPage() {
   const [foundBeer, setRandomBeer] = useState(null);

@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import "./AllBeersPage.css";
 import { Link } from "react-router-dom";
+import Search from "../components/Search";
 
 function AllBeersPage() {
   const [allBeers, setAllBeers] = useState([]);
@@ -19,6 +20,7 @@ function AllBeersPage() {
   return (
     <>
       {/* <h2>List of beers</h2> */}
+      <Search />
       <div className="beers-wrapper">
         {allBeers.map((beer) => (
           <Link key={beer._id} to={`/beers/${beer._id}`} className="beer-card">

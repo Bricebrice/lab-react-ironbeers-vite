@@ -2,7 +2,7 @@
   display: flex;
   flex-wrap: wrap;
   max-width: 1024px;
-  margin: 2em auto;
+  margin: 0 auto 2em;
 }
 
 .beer-card {
@@ -11,7 +11,7 @@
   border: 2px solid #7295ee;
   border-radius: 4px;
   padding: 1em;
-  margin: 1em auto;
+  margin: 0 auto 2em;
   align-items: center;
   color: inherit;
 }

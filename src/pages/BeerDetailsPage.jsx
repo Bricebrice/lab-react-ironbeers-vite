@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import "./BeerDetailsPage.css";
 import { Link } from "react-router-dom";
-import BeerCard from "./BeerCard";
+import BeerCard from "../components/BeerCard";
 
 function BeerDetailsPage() {
   const [foundBeer, setFoundBeer] = useState(null);
