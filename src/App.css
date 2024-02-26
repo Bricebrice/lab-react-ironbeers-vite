@@ -24,3 +24,9 @@ nav {
   text-align: center;
   padding: 1em;
 }
+
+/* Don't know how to style properly from the component library (design.pega.com) */
+Input,
+TextArea {
+  margin: 0.2em 0 1em 0;
+}

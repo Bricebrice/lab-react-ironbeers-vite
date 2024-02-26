@@ -1,6 +1,9 @@
 import { useState } from "react";
 import axios from "axios";
 
+import React from "react";
+import { Button, Input, Label, TextArea } from "@pega/cosmos-react-core";
+
 function AddBeerPage() {
   const [name, setName] = useState("");
   const [tagline, setTagline] = useState("");
@@ -39,67 +42,75 @@ function AddBeerPage() {
 
   return (
     <>
-      <h3>Add new beer</h3>
+      <h3 style={{ textAlign: "center" }}>Add new beer</h3>
 
       <form onSubmit={handleSubmit}>
-        <label>Name</label>
-        <input
+        <Label>Name</Label>
+        {/* <input
           type="text"
           name="name"
           value={name} // give value to make sure it's updated after submit
           onChange={(e) => setName(e.target.value)}
+        /> */}
+        <Input
+          type="text"
+          name="name"
+          value={name}
+          placeholder="Enter beer name"
+          onChange={(e) => setName(e.target.value)}
         />
-
-        <label>Tagline</label>
-        <input
+        <Label>Tagline</Label>
+        <Input
           type="text"
           name="tagline"
           value={tagline}
+          placeholder="Enter tagline"
           onChange={(e) => setTagline(e.target.value)}
         />
-
-        <label>Description</label>
-        <input
+        <Label>Description</Label>
+        <TextArea
           type="text"
           name="description"
           value={description}
+          placeholder="Enter description"
           onChange={(e) => setDescription(e.target.value)}
         />
-
-        <label>First Brewed</label>
-        <input
+        <Label>First Brewed</Label>
+        <Input
           type="text"
           name="first_brewed"
           value={firstBrewed}
+          placeholder="Enter date"
           onChange={(e) => setFirstBrewed(e.target.value)}
         />
-
-        <label>Brewer's Tips</label>
-        <input
+        <Label>Brewer's Tips</Label>
+        <Input
           type="text"
           name="brewers_tips"
           value={brewersTips}
+          placeholder="Enter brewer's tips"
           onChange={(e) => setBrewerTips(e.target.value)}
         />
-
-        <label>Attenuation Level</label>
-        <input
+        <Label>Attenuation Level</Label>
+        <Input
           type="number"
           name="attenuation_level"
-          min="0" // to avoid user to enter negative value
           value={attenuationLevel}
+          placeholder="Enter number"
+          min="0" // to avoid user to enter negative value
           onChange={(e) => setAttenuationLevel(e.target.value)}
         />
-
-        <label>Contributed By</label>
-        <input
+        <Label>Contributed By</Label>
+        <Input
           type="text"
           name="contributed_by"
           value={contributedBy}
+          placeholder="Enter contributor's name"
           onChange={(e) => setContributedBy(e.target.value)}
         />
-
-        <button type="submit">Add Beer</button>
+        <Button type="submit" variant="primary" compact={false}>
+          Add beer
+        </Button>{" "}
       </form>
     </>
   );
