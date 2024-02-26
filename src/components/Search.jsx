@@ -19,21 +19,25 @@ function Search() {
   // to log the current value of "q" param
   useEffect(() => {
     console.log("q", query);
-    axios
-      .get("https://ih-beers-api2.herokuapp.com/beers/search?q=" + query)
-      .then((response) => {
-        console.log("response.data: ", response.data);
-      })
-      .catch((error) => console.log(error));
+    if (query !== "") {
+      axios
+        .get("https://ih-beers-api2.herokuapp.com/beers/search?q=" + query)
+        .then((response) => {
+          console.log("response.data: ", response.data);
+        })
+        .catch((error) => console.log(error));
+    }
   }, [query]);
+
+  // I would like to clear the search on refresh :')
 
   return (
     <div className="search-bar">
       <Input
         type="text"
-        name="name"
+        name="search"
         value={query}
-        placeholder="Search here"
+        placeholder="Search beers..."
         onChange={handleChange}
       />
     </div>
