@@ -6,21 +6,48 @@ import Search from "../components/Search";
 
 function AllBeersPage() {
   const [allBeers, setAllBeers] = useState([]);
+  const [query, setQuery] = useState("");
+
+  const getAllBeers = async () => {
+    try {
+      const response = await axios.get(
+        "https://ih-beers-api2.herokuapp.com/beers"
+      );
+      // console.log("response", response);
+      setAllBeers(response.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const getSearchedBeers = async () => {
+    try {
+      const response = await axios.get(
+        `https://ih-beers-api2.herokuapp.com/beers/search?q=${query}`
+      );
+      console.log("response", response);
+      setAllBeers(response.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   useEffect(() => {
-    axios
-      .get("https://ih-beers-api2.herokuapp.com/beers")
-      .then((response) => {
-        console.log("response.data ", response.data);
-        setAllBeers(response.data);
-      })
-      .catch((error) => console.log(error));
+    getAllBeers();
   }, []);
+
+  useEffect(() => {
+    getSearchedBeers();
+  }, [query]);
+
+  // new state for the search
+  // new use effect to handle the api get call
+  // listen for changes from the child?
 
   return (
     <>
       {/* <h2>List of beers</h2> */}
-      <Search />
+      <Search updateQueryFunction={setQuery} />
       <div className="beers-wrapper">
         {allBeers.map((beer) => (
           <Link key={beer._id} to={`/beers/${beer._id}`} className="beer-card">
